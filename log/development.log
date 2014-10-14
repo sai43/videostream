@@ -1,0 +1,442 @@
+  [1m[36m (201.8ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (322.0ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (23.8ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateVideos (20141013050240)
+  [1m[35m (119.6ms)[0m  CREATE TABLE `videos` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `description` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (20.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141013050240')
+  [1m[36m (42.2ms)[0m  [1mCOMMIT[0m
+Migrating to AddVideoToVideos (20141013051820)
+  [1m[35m (290.1ms)[0m  ALTER TABLE `videos` ADD `media` varchar(255)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20141013051820')
+  [1m[36m (62.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.9ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-13 10:59:56 +0530
+
+Mysql2::Error (Access denied for user 'root'@'localhost' (using password: NO)):
+  mysql2 (0.3.16) lib/mysql2/client.rb:70:in `connect'
+  mysql2 (0.3.16) lib/mysql2/client.rb:70:in `initialize'
+  activerecord (4.1.6) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `new'
+  activerecord (4.1.6) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `mysql2_connection'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:435:in `new_connection'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:445:in `checkout_new_connection'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:416:in `acquire_connection'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:351:in `block in checkout'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:350:in `checkout'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:265:in `block in connection'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:264:in `connection'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:541:in `retrieve_connection'
+  activerecord (4.1.6) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.1.6) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.1.6) lib/active_record/migration.rb:388:in `check_pending!'
+  activerecord (4.1.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.4ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (93.2ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (135.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-13 11:00:01 +0530
+
+Mysql2::Error (Access denied for user 'root'@'localhost' (using password: NO)):
+  mysql2 (0.3.16) lib/mysql2/client.rb:70:in `connect'
+  mysql2 (0.3.16) lib/mysql2/client.rb:70:in `initialize'
+  activerecord (4.1.6) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `new'
+  activerecord (4.1.6) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `mysql2_connection'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:435:in `new_connection'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:445:in `checkout_new_connection'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:416:in `acquire_connection'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:351:in `block in checkout'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:350:in `checkout'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:265:in `block in connection'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:264:in `connection'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:541:in `retrieve_connection'
+  activerecord (4.1.6) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.1.6) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.1.6) lib/active_record/migration.rb:388:in `check_pending!'
+  activerecord (4.1.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.5ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (46.2ms)
+
+
+Started GET "/new" for 127.0.0.1 at 2014-10-13 11:00:06 +0530
+
+Mysql2::Error (Access denied for user 'root'@'localhost' (using password: NO)):
+  mysql2 (0.3.16) lib/mysql2/client.rb:70:in `connect'
+  mysql2 (0.3.16) lib/mysql2/client.rb:70:in `initialize'
+  activerecord (4.1.6) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `new'
+  activerecord (4.1.6) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `mysql2_connection'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:435:in `new_connection'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:445:in `checkout_new_connection'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:416:in `acquire_connection'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:351:in `block in checkout'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:350:in `checkout'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:265:in `block in connection'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:264:in `connection'
+  activerecord (4.1.6) lib/active_record/connection_adapters/abstract/connection_pool.rb:541:in `retrieve_connection'
+  activerecord (4.1.6) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.1.6) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.1.6) lib/active_record/migration.rb:388:in `check_pending!'
+  activerecord (4.1.6) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.6) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.6) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.6) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.6) lib/rails/engine.rb:514:in `call'
+  railties (4.1.6) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/gopi/.rvm/rubies/ruby-2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.6ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (42.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-13 11:00:40 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/railties-4.1.6/lib/rails/templates/rails/welcome/index.html.erb (4.5ms)
+Completed 200 OK in 57ms (Views: 24.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/videos" for 127.0.0.1 at 2014-10-13 11:00:51 +0530
+Processing by VideosController#index as HTML
+  [1m[35mVideo Load (1.2ms)[0m  SELECT `videos`.* FROM `videos`
+  Rendered videos/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 1205ms (Views: 1169.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-13 11:00:52 +0530
+
+
+Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2014-10-13 11:00:52 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-13 11:00:52 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-13 11:00:52 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-13 11:00:52 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-13 11:00:52 +0530
+
+
+Started GET "/assets/videos.js?body=1" for 127.0.0.1 at 2014-10-13 11:00:52 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-13 11:00:52 +0530
+
+
+Started GET "/videos/new" for 127.0.0.1 at 2014-10-13 11:00:55 +0530
+Processing by VideosController#new as HTML
+  Rendered videos/_form.html.erb (2.9ms)
+  Rendered videos/new.html.erb within layouts/application (31.0ms)
+Completed 500 Internal Server Error in 40ms
+
+SyntaxError (/home/gopi/Development/videostream/app/views/videos/_form.html.erb:15: syntax error, unexpected '\n', expecting =>
+/home/gopi/Development/videostream/app/views/videos/_form.html.erb:29: syntax error, unexpected ',', expecting ')'
+'Cancel', videos_path, :class => "btn ...
+         ^
+/home/gopi/Development/videostream/app/views/videos/_form.html.erb:29: syntax error, unexpected =>, expecting :: or '[' or '.'
+...Cancel', videos_path, :class => "btn btn-danger" );@output_b...
+...                               ^):
+  app/views/videos/_form.html.erb:15: syntax error, unexpected '\n', expecting =>
+  app/views/videos/_form.html.erb:29: syntax error, unexpected ',', expecting ')'
+  app/views/videos/_form.html.erb:29: syntax error, unexpected =>, expecting :: or '[' or '.'
+  app/views/videos/new.html.erb:3:in `_app_views_videos_new_html_erb___173952774_88572130'
+
+
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.9ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.8ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.6ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (121.6ms)
+
+
+Started GET "/videos/new" for 127.0.0.1 at 2014-10-13 11:00:55 +0530
+Processing by VideosController#new as HTML
+  Rendered videos/_form.html.erb (3.2ms)
+  Rendered videos/new.html.erb within layouts/application (6.3ms)
+Completed 500 Internal Server Error in 11ms
+
+SyntaxError (/home/gopi/Development/videostream/app/views/videos/_form.html.erb:15: syntax error, unexpected '\n', expecting =>
+/home/gopi/Development/videostream/app/views/videos/_form.html.erb:29: syntax error, unexpected ',', expecting ')'
+'Cancel', videos_path, :class => "btn ...
+         ^
+/home/gopi/Development/videostream/app/views/videos/_form.html.erb:29: syntax error, unexpected =>, expecting :: or '[' or '.'
+...Cancel', videos_path, :class => "btn btn-danger" );@output_b...
+...                               ^):
+  app/views/videos/_form.html.erb:15: syntax error, unexpected '\n', expecting =>
+  app/views/videos/_form.html.erb:29: syntax error, unexpected ',', expecting ')'
+  app/views/videos/_form.html.erb:29: syntax error, unexpected =>, expecting :: or '[' or '.'
+  app/views/videos/new.html.erb:3:in `_app_views_videos_new_html_erb___173952774_81631480'
+
+
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.9ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.4ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (38.7ms)
+
+
+Started GET "/videos/new" for 127.0.0.1 at 2014-10-13 11:02:16 +0530
+Processing by VideosController#new as HTML
+  Rendered videos/_form.html.erb (2.1ms)
+  Rendered videos/new.html.erb within layouts/application (3.7ms)
+Completed 500 Internal Server Error in 9ms
+
+SyntaxError (/home/gopi/Development/videostream/app/views/videos/_form.html.erb:32: syntax error, unexpected ',', expecting ')'
+'Cancel', videos_path, :class => "btn ...
+         ^
+/home/gopi/Development/videostream/app/views/videos/_form.html.erb:32: syntax error, unexpected =>, expecting :: or '[' or '.'
+...Cancel', videos_path, :class => "btn btn-danger" );@output_b...
+...                               ^):
+  app/views/videos/_form.html.erb:32: syntax error, unexpected ',', expecting ')'
+  app/views/videos/_form.html.erb:32: syntax error, unexpected =>, expecting :: or '[' or '.'
+  app/views/videos/new.html.erb:3:in `_app_views_videos_new_html_erb___173952774_81631480'
+
+
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.2ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.3ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (44.1ms)
+
+
+Started GET "/videos/new" for 127.0.0.1 at 2014-10-13 11:05:56 +0530
+Processing by VideosController#new as HTML
+  Rendered videos/_form.html.erb (160.5ms)
+  Rendered videos/new.html.erb within layouts/application (164.3ms)
+Completed 500 Internal Server Error in 176ms
+
+ActionView::Template::Error (undefined method `media_cache' for #<Video:0xa9036c0>):
+    24:   <div class="form-group">
+    25:     <label for="InputFile">Upload Video</label>
+    26:     <%= f.file_field :media %>
+    27:     <%= f.hidden_field :media_cache %>
+    28:     <p class="help-block"></p>
+    29:   </div>
+    30: 
+  app/views/videos/_form.html.erb:27:in `block in _app_views_videos__form_html_erb___680018570_88604980'
+  app/views/videos/_form.html.erb:1:in `_app_views_videos__form_html_erb___680018570_88604980'
+  app/views/videos/new.html.erb:3:in `_app_views_videos_new_html_erb___173952774_81631480'
+
+
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.2ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (30.7ms)
+
+
+Started GET "/videos/new" for 127.0.0.1 at 2014-10-13 11:08:05 +0530
+Processing by VideosController#new as HTML
+  Rendered videos/_form.html.erb (12.8ms)
+  Rendered videos/new.html.erb within layouts/application (35.1ms)
+Completed 200 OK in 154ms (Views: 152.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2014-10-13 11:08:05 +0530
+
+
+Started GET "/assets/videos.css?body=1" for 127.0.0.1 at 2014-10-13 11:08:05 +0530
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-13 11:08:05 +0530
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-13 11:08:05 +0530
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-13 11:08:05 +0530
+
+
+Started GET "/assets/videos.js?body=1" for 127.0.0.1 at 2014-10-13 11:08:05 +0530
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-10-13 11:08:05 +0530
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-13 11:08:05 +0530
+
+
+Started POST "/videos" for 127.0.0.1 at 2014-10-13 11:10:13 +0530
+Processing by VideosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8uxTYegPutrXKaSxqqWAHgUPlmncIqFSJIQs0Cg7W0E=", "video"=>{"title"=>"rails rumbel", "description"=>"eaggsdgsd", "media"=>#<ActionDispatch::Http::UploadedFile:0x92d9250 @tempfile=#<Tempfile:/tmp/RackMultipart20141013-4649-1klvg30>, @original_filename="017-habtm-checkboxes-revised.mp4", @content_type="video/mp4", @headers="Content-Disposition: form-data; name=\"video[media]\"; filename=\"017-habtm-checkboxes-revised.mp4\"\r\nContent-Type: video/mp4\r\n">}, "commit"=>"Save"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 5ms
+
+NoMethodError (undefined method `slug' for #<Video:0x94238f4>):
+  app/controllers/videos_controller.rb:30:in `block in create'
+  app/controllers/videos_controller.rb:29:in `create'
+
+
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.7ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (37.6ms)
+
+
+Started POST "/videos" for 127.0.0.1 at 2014-10-13 11:14:43 +0530
+Processing by VideosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8uxTYegPutrXKaSxqqWAHgUPlmncIqFSJIQs0Cg7W0E=", "video"=>{"title"=>"rails rumbel", "description"=>"eaggsdgsd", "media"=>#<ActionDispatch::Http::UploadedFile:0x9210f1c @tempfile=#<Tempfile:/tmp/RackMultipart20141013-4649-18pmq3j>, @original_filename="017-habtm-checkboxes-revised.mp4", @content_type="video/mp4", @headers="Content-Disposition: form-data; name=\"video[media]\"; filename=\"017-habtm-checkboxes-revised.mp4\"\r\nContent-Type: video/mp4\r\n">}, "commit"=>"Save"}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+Completed 500 Internal Server Error in 5ms
+
+NoMethodError (undefined method `slug' for #<Video:0x93e8948>):
+  app/controllers/videos_controller.rb:30:in `block in create'
+  app/controllers/videos_controller.rb:29:in `create'
+
+
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.6ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (38.0ms)
+
+
+Started GET "/videos" for 127.0.0.1 at 2014-10-13 11:15:36 +0530
+Processing by VideosController#index as HTML
+  [1m[36mVideo Load (0.3ms)[0m  [1mSELECT `videos`.* FROM `videos`[0m
+  Rendered videos/index.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 113ms (Views: 111.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/videos/new" for 127.0.0.1 at 2014-10-13 11:15:39 +0530
+Processing by VideosController#new as HTML
+  Rendered videos/_form.html.erb (5.7ms)
+  Rendered videos/new.html.erb within layouts/application (7.6ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (undefined method `media_cache' for #<Video:0xac51b74>):
+    24:   <div class="form-group">
+    25:     <label for="InputFile">Upload Video</label>
+    26:     <%= f.file_field :media %>
+    27:     <%= f.hidden_field :media_cache %>
+    28:     <p class="help-block"></p>
+    29:   </div>
+    30: 
+  app/views/videos/_form.html.erb:27:in `block in _app_views_videos__form_html_erb___680018570_90369840'
+  app/views/videos/_form.html.erb:1:in `_app_views_videos__form_html_erb___680018570_90369840'
+  app/views/videos/new.html.erb:3:in `_app_views_videos_new_html_erb___173952774_88572130'
+
+
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (25.5ms)
+
+
+Started GET "/videos/new" for 127.0.0.1 at 2014-10-13 11:15:39 +0530
+Processing by VideosController#new as HTML
+  Rendered videos/_form.html.erb (6.3ms)
+  Rendered videos/new.html.erb within layouts/application (7.9ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined method `media_cache' for #<Video:0xad68f1c>):
+    24:   <div class="form-group">
+    25:     <label for="InputFile">Upload Video</label>
+    26:     <%= f.file_field :media %>
+    27:     <%= f.hidden_field :media_cache %>
+    28:     <p class="help-block"></p>
+    29:   </div>
+    30: 
+  app/views/videos/_form.html.erb:27:in `block in _app_views_videos__form_html_erb___680018570_90934600'
+  app/views/videos/_form.html.erb:1:in `_app_views_videos__form_html_erb___680018570_90934600'
+  app/views/videos/new.html.erb:3:in `_app_views_videos_new_html_erb___173952774_81631480'
+
+
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /home/gopi/.rvm/gems/ruby-2.0.0-p481/gems/actionpack-4.1.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (26.4ms)
