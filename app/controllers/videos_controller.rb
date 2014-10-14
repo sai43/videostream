@@ -9,9 +9,10 @@ class VideosController < ApplicationController
 
   # GET /videos/1
   # GET /videos/1.json
-  def show
-  end
-
+    def show
+        @videos = Video.get_other_videos(@video.id)
+    end
+  
   # GET /videos/new
   def new
     @video = Video.new
